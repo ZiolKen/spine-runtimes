@@ -52,13 +52,11 @@ jobs:
       - name: Setup python and scons
         uses: ./.github/actions/setup-godot-deps-4
 
-      - name: Install Godot D3D12 SDK
-        run: python ./spine-godot/godot/misc/scripts/install_d3d12_sdk_windows.py
-
       - name: Build Godot artifact
         shell: bash
         run: |
           ./spine-godot/build/setup.sh $GODOT_TAG false $GODOT_MONO
+          python misc/scripts/install_d3d12_sdk_windows.py
           ./spine-godot/build/build-v4.sh $GODOT_MONO
 
       - name: Upload artifacts
