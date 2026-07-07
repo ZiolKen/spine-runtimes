@@ -130,7 +130,7 @@ elif [ "$platform" = "ios" ]; then
 	cp libgodot.ios.template_release.simulator.a $ios_tpl_dir/libgodot.ios.release.xcframework/ios-arm64_x86_64-simulator/libgodot.a
 	cp libgodot.ios.template_debug.arm64.a $ios_tpl_dir/libgodot.ios.debug.xcframework/ios-arm64/libgodot.a
 	cp libgodot.ios.template_debug.simulator.a $ios_tpl_dir/libgodot.ios.debug.xcframework/ios-arm64_x86_64-simulator/libgodot.a
-	cp -r /Users/runner/VulkanSDK/1.3.275.0/macOS/lib/MoltenVK.xcframework $ios_tpl_dir/
+	cp -r /Users/runner/VulkanSDK/1.3.283.0/macOS/lib/MoltenVK.xcframework $ios_tpl_dir/
 	rm -rf $ios_tpl_dir/MoltenVK.xcframework/{macos,tvos}*
 	rm -rf ios.zip
 	pushd $ios_tpl_dir
