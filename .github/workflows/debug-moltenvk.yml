@@ -1,0 +1,23 @@
+name: Debug MoltenVK
+on: workflow_dispatch
+
+jobs:
+  check:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run the same Vulkan SDK install script
+        run: ./spine-godot/build/install-macos-vulkan-sdk.sh
+
+      - name: Inspect
+        run: |
+          echo "=== ~/VulkanSDK ==="
+          ls -la ~/VulkanSDK || true
+          ls -la ~/VulkanSDK/*/ || true
+          echo "=== MoltenVK.xcframework locations ==="
+          find ~ -maxdepth 7 -name 'MoltenVK.xcframework' 2>/dev/null || true
+          echo "=== install script ==="
+          cat spine-godot/build/install-macos-vulkan-sdk.sh
+          echo "=== MoltenVK refs in build script ==="
+          grep -n -i moltenvk spine-godot/build/build-templates-v4.sh
